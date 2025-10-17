@@ -1,0 +1,33 @@
+# Copy this file to terraform.tfvars and fill in the required values
+
+# GitHub Configuration
+# You must create a GitHub connection in AWS App Runner first:
+# 1. Go to AWS Console > App Runner > GitHub connections
+# 2. Create a new connection and authorize your GitHub account
+# 3. Copy the connection ARN and paste it below
+github_repository_url    = "https://github.com/YOUR_USERNAME/YOUR_REPO"
+github_branch            = "main"
+github_connection_arn    = "arn:aws:apprunner:us-east-1:183295417701:connection/YOUR_CONNECTION_NAME/YOUR_CONNECTION_ID"
+
+# Domain Configuration (defaults provided)
+domain_name       = "riacademyofwine.com"
+hosted_zone_id    = "Z01022013L6VCTW45YGJ5"
+create_www_record = false
+
+# Environment
+environment = "production"
+
+# Instance Configuration (adjust based on your needs)
+cpu    = "1024"  # Options: 256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU
+memory = "2048"    # Options: 512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB
+
+# Auto Scaling
+max_concurrency = 100
+max_size        = 10
+min_size        = 1
+
+# Environment Variables (optional)
+environment_variables = {
+  # NODE_ENV = "production"
+  # Add any other environment variables your app needs
+}
